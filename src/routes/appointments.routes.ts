@@ -1,17 +1,18 @@
 import { Router } from 'express';
 import { parseISO } from 'date-fns';
 
-import AppointmentsRepository from '../repositories/AppointmentReposity'
+import AppointmentsRepository from '../repositories/AppointmentReposity';
+import CreateAppointmentService from '../services/CreateAppointmentService';
 
 const appointmentRouter = Router();
 
-const appointmentReposity = new AppointmentsRepository()
+const appointmentReposity = new AppointmentsRepository();
 
 appointmentRouter.get('/', (request, response) => {
-  const appointments = appointmentReposity.all()
+  const appointments = appointmentReposity.all();
 
-  return response.json(appointments)
-})
+  return response.json(appointments);
+});
 
 appointmentRouter.post('/', (request, response) => {
   try {
@@ -19,10 +20,14 @@ appointmentRouter.post('/', (request, response) => {
 
     const parsedDate = parseISO(date);
 
-    
+    const createAppointment = new CreateAppointmentService(appointmentReposity);
 
+    const appointment = createAppointment.execute({
+      date: parsedDate,
+      provider,
+    });
 
-    return response.json();
+    return response.json(appointment);
   } catch (error) {
     return response.status(400).json({ error: error.message });
   }
