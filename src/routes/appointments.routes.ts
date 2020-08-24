@@ -1,14 +1,13 @@
-import { Router } from 'express'
+import { Router } from 'express';
 
-const appointmentRouter = Router()
+const appointmentRouter = Router();
 
 appointmentRouter.post('/', (request, response) => {
   try {
-    
-
+    return;
   } catch (error) {
-    return response.status(400).json({ error: error.message })
+    return response.status(400).json({ error: error.message });
   }
-})
+});
 
-export default appointmentRouter
+export default appointmentRouter;
