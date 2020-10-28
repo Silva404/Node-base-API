@@ -1,13 +1,10 @@
 {
   "type": "postgres",
   "host": "localhost",
-  "port": 5434,
+  "port": 5432,
   "username": "postgres",
-  "password": "docker",
-  "database": "gostack_gobarber",
-  "entities": [
-    "./src/models/*.ts"
-  ],
+  "password": "postgres",
+  "database": "gobarber",
   "migrations": [
     "./src/database/migrations/*.ts"
   ],
