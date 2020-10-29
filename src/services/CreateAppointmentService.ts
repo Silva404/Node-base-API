@@ -9,7 +9,7 @@ interface Request {
 }
 
 export default class CreateAppointmentService {
-  public execute({ date, provider }: Request): Appointment {
+  public async execute({ date, provider }: Request): Appointment {
     const appointmentRepository = getCustomRepository(AppointmentRepository);
 
     const appointmentDate = startOfHour(date);
@@ -26,6 +26,8 @@ export default class CreateAppointmentService {
       provider,
       date: appointmentDate,
     });
+
+    await appointmentRepository.save(appointment);
 
     return appointment;
   }
