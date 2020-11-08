@@ -34,6 +34,12 @@
     "@typescript-eslint/camelcase": "off",
     "prettier/prettier": "error",
     "class-methods-use-this": "off",
+    "@typescript-eslint/interface-name-prefix": [
+      "error",
+      {
+        "prefixWithI": "always"
+      }
+    ],
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
