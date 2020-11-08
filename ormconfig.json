@@ -6,12 +6,12 @@
   "password": "postgres",
   "database": "gobarber",
   "entities": [
-    "./src/modules/**/infra/typeorm/entities/*.ts"
+    "./src/models/*.ts"
   ],
   "migrations": [
-    "./src/shared/infra/typeorm/migrations/*.ts"
+    "./src/database/migrations/*.ts"
   ],
   "cli": {
-    "migrationsDir": "./src/shared/infra/typeorm/migrations"
+    "migrationsDir": "./src/database/migrations"
   }
 }

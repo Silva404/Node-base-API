@@ -30,7 +30,6 @@
         "ts": "never"
       }
     ],
-    "no-useless-constructor": "off",
     "camelcase": "off",
     "@typescript-eslint/camelcase": "off",
     "prettier/prettier": "error",
